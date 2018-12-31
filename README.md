@@ -1,27 +1,32 @@
 # **BUILD GUIDE** #
 
-### 1. Initialize provider: ###
+### 1. Connect localhost to server
 
-*Insert data from sp_data_backup.txt into 'provider' collection (password: admin)
+Open ngrok.exe
+Run: "ngrok.exe http 3000"
 
 ### 2. Run app ###
-### 3. Feedback roulette ###
-Notes: This link is for testing only. Must disabled on production.
-(1) GET: http://localhost:3000/provider/code?username=admin&billNo=123&billValue=123456
-(2) GET: http://localhost:3000/?fbId={fbId}&refStr={refStr(1)}
 
-### 4. Food roulette ###
-Notes: This link is for testing only. Must disabled on production.
-(1) GET: http://localhost:3000/provider/code?username=admin&billNo=123&billValue=123456
-(2) GET: http://localhost:3000/food?fbId={fbId}&refStr={refStr(1)}
+In visual Studio Code, open project folder
+Menu: Debug > Start Debugging or press F5 in keyboard
 
-### 5. Gift page ###
-(1) GET: http://localhost:3000/auth/token/{fbId}
-(2) GET: http://localhost:3000/gift?token={token}
+### 3. Setting ngrok in Azuare to connect Azuare to Messenger
 
-### 6. Promotion view/ Menu view ###
-GET: http://localhost:3000/view/promotion-detail?id={promotionId}&providerId={providerId}&token={optionalTokenShipApi}
-GET: http://localhost:3000/view/menu-detail?id={menuId}&providerId={providerId}&token={optionalTokenShipApi}
+In search box, find travel_bot
+In right list of menu > Bot management, click Settings > Configuration:
 
-### 6. NOTE ###
-- If something goes wrong with above links, go debug.
+Change messaging endpoint:
+Copy Forwarding url in Command Prompt in step 1 and paste to 
+Exp: https://27c047b6.ngrok.io 
+
+Messaging endpoint like:
+https://27c047b6.ngrok.io/api/messages/travel_bot
+
+Click Save 
+
+### 4. Testing in Messenger
+
+Go to https://www.messenger.com/t/danangvntravel
+
+
+

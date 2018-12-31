@@ -22,9 +22,9 @@ module.exports = {
         appSPToken: 'EAASNT5hh2J8BALKh2TKzr0bRW40U77pUcqABizIKToZAE26mjq3L46i60OBkx3d0YbEMNVUL7ZCqvjMBC6MDE7JRmk7Nw9TMXSZBV8zQk5rrg8pNLW9obNNAxrZBr7RiGQDbvZB5ICONhFZAZAP0Gchv100ZAkaULnOFVG2yptZC8ZCQZDZD',
     },
     spBot: [{
-        botName: "DL_bot",
-        appId: "0f37d07a-40af-446b-9070-0f5a609b0ea3",
-        appPassword: "abhdTAGYG088?znkYA24?~_",
+        botName: "travel_bot",
+        appId: "abcc50ed-d634-4574-85ae-aa6f50ffc208",
+        appPassword: "zdgtpHT298itOBYCM04|~!{",
     }],
     botstatedb: {
         host: 'https://gnjprodstate.documents.azure.com:443/',

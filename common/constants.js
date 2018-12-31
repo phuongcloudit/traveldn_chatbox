@@ -21,9 +21,9 @@ module.exports.StatusConstants = {
 }
 
 module.exports.dialogFlow = {
-    CLIENT_ACCESS_TOKEN: 'b24c0da45cc44d0dad21fdac78b99a27',
-    DEV_ACCESS_TOKEN: '378d598ffd174e1d865422cb20c27976',
-    URL: 'https://api.dialogflow.com/v1/query?v=20170712',
+    CLIENT_ACCESS_TOKEN: '64108e64367f4fb8835fbbd546577311',
+    DEV_ACCESS_TOKEN: '682ba8dce4404868ac3d17bd14272f6a',
+    URL: 'https://api.dialogflow.com/v1/query?v=20150910',
 }
 
 module.exports.MessageConstants = {

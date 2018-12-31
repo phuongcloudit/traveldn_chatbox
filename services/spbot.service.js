@@ -146,20 +146,9 @@ function handleUserInput(username, session, results) {
 
 function handleAfterQueryIntent(session, res) {
     if (res && res.success) {
-        if (res.intentName) {
-            let intentName = res.intentName;
-            switch (intentName) {
-                case 'ask_has_promotion':
-                    session.beginDialog('/sendPromotion');
-                    break;
-                default:
-                    answerFaqService.getAnswerFaqByIntentAndProviderId(intentName, session.userData.sessInfo.provider._id).then(res => {
-                        if (res && res.success) {
-                            sessionHelper.sendTextMessage(session, res.data.content);
-                        }
-                    })
-                    break;
-            }
+        if (res.answer) {
+            let answer = res.answer;
+            sessionHelper.sendTextMessage(session, answer);
         } else {
             sendSorry(session);
         }

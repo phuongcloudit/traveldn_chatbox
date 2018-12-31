@@ -31,27 +31,14 @@ module.exports.update = (body) => {
     })
 }
 
-module.exports.getAnswerFaqByIntentAndProviderId = (field, providerId) =>{
+module.exports.getAnswerFaqByIntentAndProviderId = (field) =>{
     return new Promise((resolve)=>{
         let query = {
             "field": field
         }
         Intent.findOne(query).then(intent =>{
             if(intent){
-                let query = {
-                    intent: intent._id,
-                    provider: providerId
-                }
-                AnswerFaq.findOne(query).then(answerFaq =>{
-                    if(answerFaq){
-                        resolve({success: true, data: answerFaq});
-                    }else{
-                        resolve({success: false});
-                    }
-                }).catch(err => {
-                    console.log(err);
-                    resolve({success: false});
-                })
+                resolve({success: true, data: intent.answer});
             }else{
                 resolve({success: false});
             }

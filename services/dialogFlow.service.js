@@ -21,15 +21,15 @@ module.exports.queryIntent = (text) => {
                 resolve({ success: false })
                 console.log('err', err);
             } else {
-                resolve(getIntentFromResponse(JSON.parse(res.body)))
+                resolve(getAnswerFromResponse(JSON.parse(res.body)))
             }
         })
     })
 }
 
-function getIntentFromResponse(body) {
+function getAnswerFromResponse(body) {
     if (body && body.status && body.status.code == '200') {
-        return { success: true, intentName: body.result.metadata.intentName };
+        return { success: true, answer: body.result.fulfillment.speech };
     } else {
         return { success: false };
     }
