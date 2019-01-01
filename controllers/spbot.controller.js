@@ -26,9 +26,6 @@ module.exports.bindDialogsToBot = (bot, username) => {
     bot.dialog('/', [function (session) {
         spBotService.main(username, session);
     }]);
-    bot.beginDialogAction('aboutUs', '/aboutUs', {
-        matches: /^ZZZZZZ_ABOUT_US_AAAAAA_.*/i
-    });
     bot.beginDialogAction('sendBridge', '/sendBridge', {
         matches: /^ZZZZZZ_COMMAND_BRIDGE_AAAAAA_.*/i
     });
@@ -44,8 +41,14 @@ module.exports.bindDialogsToBot = (bot, username) => {
     bot.beginDialogAction('sendNature', '/sendNature', {
         matches: /^ZZZZZZ_COMMAND_NATURE_AAAAAA_.*/i
     });
-    bot.beginDialogAction('sendGiaVe', '/sendGiaVe', {
+    bot.beginDialogAction('sendGiaVeB', '/sendGiaVeB', {
         matches: /^ZZZ_BRIDGE_GIA_VE_AAA.*/i
+    });
+    bot.beginDialogAction('sendGiaVeN', '/sendGiaVeN', {
+        matches: /^ZZZ_NATURE_GIA_VE_AAA.*/i
+    });
+    bot.beginDialogAction('sendGiaVeV', '/sendGiaVeV', {
+        matches: /^ZZZ_VANHOA_GIA_VE_AAA.*/i
     });
     bot.beginDialogAction('sendDiachiB', '/sendDiachiB', {
         matches: /^ZZZ_BRIDGE_DIA_CHI_AAA.*/i
@@ -56,23 +59,26 @@ module.exports.bindDialogsToBot = (bot, username) => {
     bot.beginDialogAction('sendDiachiV', '/sendDiachiV', {
         matches: /^ZZZ_VANHOA_DIA_CHI_AAA.*/i
     });
-    bot.beginDialogAction('sendVideo', '/sendVideo', {
+    bot.beginDialogAction('sendVideoB', '/sendVideoB', {
         matches: /^ZZZ_BRIDGE_VIDEO_AAA.*/i
     });
-    bot.beginDialogAction('sendMap', '/sendMap', {
+    bot.beginDialogAction('sendVideoN', '/sendVideoN', {
+        matches: /^ZZZ_NATURE_VIDEO_AAA.*/i
+    });
+    bot.beginDialogAction('sendVideoV', '/sendVideoV', {
+        matches: /^ZZZ_VANHOA_VIDEO_AAA.*/i
+    });
+    bot.beginDialogAction('sendMapB', '/sendMapB', {
         matches: /^ZZZ_BRIDGE_MAP_AAA.*/i
     });
-    bot.beginDialogAction('sendGiaVe2', '/sendGiaVe2', {
-        matches: /^ZZZ_NATURE_GIA_VE_AAA.*/i
+    bot.beginDialogAction('sendMapN', '/sendMapN', {
+        matches: /^ZZZ_NATURE_MAP_AAA.*/i
     });
-    bot.beginDialogAction('sendGiaVe3', '/sendGiaVe3', {
-        matches: /^ZZZ_VANHOA_GIA_VE_AAA.*/i
+    bot.beginDialogAction('sendMapV', '/sendMapV', {
+        matches: /^ZZZ_VANHOA_MAP_AAA.*/i
     });
     bot.beginDialogAction('sendAbout', '/sendAbout', {
         matches: /^ZZZZZZ_ABOUTDN_AAAAAA_.*/i
-    });
-    bot.beginDialogAction('sendCarGetDirection', '/sendCardGetDirection', {
-        matches: /^ZZZZZZ_COMMAND_GET_DIRECTION_AAAAAA_.*/i
     });
     bot.beginDialogAction('chatWithAdmin', '/chatWithAdmin', {
         matches: /^ZZZZZZ_CHAT_WITH_ADMIN_AAAAAA_.*/i
@@ -80,18 +86,6 @@ module.exports.bindDialogsToBot = (bot, username) => {
     bot.beginDialogAction('stopChatting', '/stopChatting', {
         matches: /^ZZZZZZ_STOP_CHATTING_AAAAAA_.*|#STOP/i
     });
-    bot.beginDialogAction('commandCat', '/commandCat', {
-        matches: /^ZZZZZZ_COMMAND_CAT_AAAAAA_.*/i
-    }); 
-
-    bot.beginDialogAction('khamPha', '/khamPha', {
-        matches: /^demo*/i
-    });
-    bot.dialog('/khamPha', [function (session) {
-        session.sendTyping();
-        buttonSPBotService.khamPha(username, session);
-    }]);
-
     bot.dialog('/chatWithAdmin', [function (session) {
         session.sendTyping();
         buttonSPBotService.chatWithAdmin(username, session);
@@ -116,21 +110,29 @@ module.exports.bindDialogsToBot = (bot, username) => {
         session.sendTyping();
         buttonSPBotService.sendDiachiN(username, session);
     }]);
-    bot.dialog('/sendVideo', [function (session) {
+    bot.dialog('/sendVideoB', [function (session) {
         session.sendTyping();
-        buttonSPBotService.sendVideo(username, session);
+        buttonSPBotService.sendVideoB(username, session);
     }]);
-    bot.dialog('/sendMap', [function (session) {
+    bot.dialog('/sendVideoN', [function (session) {
         session.sendTyping();
-        buttonSPBotService.sendMap(username, session);
+        buttonSPBotService.sendVideoN(username, session);
     }]);
-    bot.dialog('/aboutUs', [function (session) {
+    bot.dialog('/sendVideoV', [function (session) {
         session.sendTyping();
-        buttonSPBotService.sendAboutUs(username, session);
+        buttonSPBotService.sendVideoV(username, session);
     }]);
-    bot.dialog('/contactUs', [function (session) {
+    bot.dialog('/sendMapB', [function (session) {
         session.sendTyping();
-        buttonSPBotService.contactUs(username, session);
+        buttonSPBotService.sendMapB(username, session);
+    }]);
+    bot.dialog('/sendMapN', [function (session) {
+        session.sendTyping();
+        buttonSPBotService.sendMapN(username, session);
+    }]);
+    bot.dialog('/sendMapV', [function (session) {
+        session.sendTyping();
+        buttonSPBotService.sendMapV(username, session);
     }]);
     bot.dialog('/sendBridge', [function (session, args) {
         session.sendTyping();
@@ -139,14 +141,6 @@ module.exports.bindDialogsToBot = (bot, username) => {
     bot.dialog('/sendSukien', [function (session, args) {
         session.sendTyping();
         buttonSPBotService.sendSukien(username, session);
-    }]);
-    bot.dialog('/sendMenu', [function (session, args) {
-        session.sendTyping();
-        buttonSPBotService.sendMenu(username, session);
-    }]);
-    bot.dialog('/sendReservation', [function (session, args) {
-        session.sendTyping();
-        buttonSPBotService.sendCardReservation(username, session);
     }]);
     bot.dialog('/sendThamquan', [function (session, args) {
         session.sendTyping();
@@ -160,41 +154,33 @@ module.exports.bindDialogsToBot = (bot, username) => {
         session.sendTyping();
         buttonSPBotService.sendNature(username, session);
     }]);
-    bot.dialog('/sendGiaVe', [function (session, args) {
+    bot.dialog('/sendGiaVeB', [function (session, args) {
         session.sendTyping();
-        buttonSPBotService.sendGiaVe(username, session);
+        buttonSPBotService.sendGiaVeB(username, session);
     }]);
-    bot.dialog('/sendGiaVe2', [function (session, args) {
+    bot.dialog('/sendGiaVeN', [function (session, args) {
         session.sendTyping();
-        buttonSPBotService.sendGiaVe2(username, session);
+        buttonSPBotService.sendGiaVeN(username, session);
     }]);
-    bot.dialog('/sendGiaVe3', [function (session, args) {
+    bot.dialog('/sendGiaVeV', [function (session, args) {
         session.sendTyping();
-        buttonSPBotService.sendGiaVe3(username, session);
-    }]);
-    bot.dialog('/commandCat', [function (session, args) {
-        session.sendTyping();
-        buttonSPBotService.commandCat(username, session);
+        buttonSPBotService.sendGiaVeV(username, session);
     }]);
     bot.dialog('/sendAbout', [function (session, args) {
         session.sendTyping();
         buttonSPBotService.sendAbout(username, session);
     }]);
-    bot.dialog('/sendCardGetDirection', [function (session, args) {
-        session.sendTyping();
-        buttonSPBotService.sendCardGetDirection(username, session);
-    }]);
     bot.beginDialogAction('bridgeKhamPha', '/bridgeKhamPha', {
         matches: /^ZZZ_BRIDGE_KHAM_PHA_AAA.*/i
+    });
+    bot.beginDialogAction('noKhamPhaBr', '/noKhamPhaBr', {
+        matches: /^ZZZ_BR_KHAM_PHA_NO_AAA.*/i
     });
     bot.beginDialogAction('vanhoaKhamPha', '/vanhoaKhamPha', {
         matches: /^ZZZ_VANHOA_KHAM_PHA_AAA.*/i
     });
     bot.beginDialogAction('natureKhamPha', '/natureKhamPha', {
         matches: /^ZZZ_NATURE_KHAM_PHA_AAA.*/i
-    });
-    bot.beginDialogAction('vanhoaKhamPha', '/vanhoaKhamPha', {
-        matches: /^ZZZ_VANHOA_KHAM_PHA_AAA.*/i
     });
     bot.dialog('/bridgeKhamPha', [function (session) {
         buttonSPBotService.bridgeKhamPha(session);

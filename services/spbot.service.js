@@ -159,9 +159,8 @@ function sendSorry(session) {
     helperSPBotService.checkSess(session);
     var lang = session.userData.sessInfo.lang;
     session.userData.sessInfo.label_nlp = undefined;
-    let dontUnderstandText = _trans.getField('sorry-we-dont-understand', lang);
+    let dontUnderstandText = _trans.getField('Xin lỗi, bạn có thể nhắn lại hoặc khởi động lại Bot ở menu.', lang);
     session.send(`${dontUnderstandText} :(`);
-    session.beginDialog("/contactUs");
 }
 
 

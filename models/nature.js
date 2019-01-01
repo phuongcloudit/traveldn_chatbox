@@ -7,6 +7,9 @@ const natureSchema = new Schema({
     image: String,
     url: String,
     price: String,
+    add: String,
+    video: String,
+    map: String,
 }, { collection: "nature" });
 
 mongoose.model("Nature", natureSchema);
